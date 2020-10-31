@@ -1,0 +1,104 @@
+<!-- <h1 class="text-center">Add Transport</h1> -->
+    <div class="form-group">
+      <label for="transid">Transport Id:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="transdetid"
+        [(ngModel)]="transService.currentTransport.transdetid"
+        name="transdetid"
+        disabled
+      />
+    </div>
+    <div class="form-group">
+      <label for="agent">Agent Id:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="tagentid"
+        required
+        [(ngModel)]="transService.currentTransport.tagentid"
+        name="tagentid"
+      />
+    </div>
+    <div class="form-group">
+      <label for="package">Package Id:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="tpackid"
+        required
+        [(ngModel)]="transService.currentTransport.tpackid"
+        name="tpackid"
+        disabled
+      />
+    </div>
+    <div class="form-group">
+
+        <label for="inlineFormCustomSelect">Transport Type:</label>
+        <select id="inlineFormCustomSelect"
+        class="custom-select"
+        [(ngModel)]="transService.currentTransport.transtype" required>
+          <!-- <option selected>Choose...</option> -->
+          <option value="Bus">Bus</option>
+          <option value="Car">Car</option>
+        </select>
+
+      <!-- <label for="type">Transport Type:</label>
+      &nbsp;&nbsp;&nbsp;
+      <input type="radio" id="transtype" name="transtype" value="Bus" 
+      [(ngModel)]="transService.currentTransport.transtype">
+      <label for="bus">Bus</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="radio" id="transtype" name="transtype" value="Car"
+      [(ngModel)]="transService.currentTransport.transtype">
+      <label for="car">Car</label> -->
+
+      <!-- <input
+        type="email"
+        class="form-control"
+        id="transtype"
+        required
+        [(ngModel)]="transService.currentTransport.transtype"
+        name="transtype"
+      /> -->
+    </div>
+    <div class="form-group">
+      <label for="type">Transport Image Url:</label>
+      <input
+        type="imageUrl"
+        class="form-control"
+        id="image"
+        required
+        [(ngModel)]="transService.currentTransport.image"
+        name="image"
+      />
+    </div>
+    <div class="form-group">
+      <label for="details">Transport Details:</label>
+      <textarea
+        class="form-control"
+        id="transdetails"
+        required
+        [(ngModel)]="transService.currentTransport.transdetails"
+        name="transdetails"
+      ></textarea>
+    </div>
+    <div class="text-center">
+      <button
+        type="submit"
+        class="btn btn-success"
+        (click)="createTrans(transService.currentTransport)"
+      >
+        Add</button
+      >&nbsp;
+      <button
+        type="submit"
+        class="btn btn-info"
+        (click)="updateTrans(transService.currentTransport)"
+      >
+        Update</button
+      >&nbsp;
+      <button type="submit" class="btn btn-primary" (click)="clear()">
+        Refresh
+      </button>
+    </div>    

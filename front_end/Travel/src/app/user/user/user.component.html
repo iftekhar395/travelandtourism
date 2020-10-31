@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Dhrubo</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+  <body>
+    <input type="checkbox" id="check" />
+    <label for="check">
+      <i
+        class="fa fa-chevron-right"
+        aria-hidden="true"
+        id="btn"
+        style="margin-top: 45px; position: fixed;"
+      ></i>
+      <i
+        class="fa fa-chevron-left"
+        aria-hidden="true"
+        style="position: fixed;"
+        id="cancel"
+      ></i>
+    </label>    
+    <div class="sidebar">
+      <header style="margin-top: -24px;">User Info</header>
+      <ul class="submenu">
+        <li>
+          <a style="text-decoration: none;"routerLink="editprofile" routerLinkActive="active current" style="text-decoration: none;"
+            ><i class="fa fa-edit" aria-hidden="true"></i>
+            Edit Profile</a
+          >
+        </li>
+        <!-- <li>
+          <a style="text-decoration: none;"routerLink="agent" routerLinkActive="active current"
+            ><i class="fa fa-address-card-o" aria-hidden="true"></i> Agents</a
+          >
+        </li>
+        <li>
+          <a style="text-decoration: none;"routerLink="hotel" routerLinkActive="active current"
+            ><i class="fa fa-h-square" aria-hidden="true"></i> Hotels</a
+          >
+        </li>
+        <li>
+          <a><i class="fa fa-car" aria-hidden="true"></i> Transports</a>
+          <ul>
+            <li>
+              <a style="text-decoration: none;"routerLink="renttransport" routerLinkActive="active current"
+                ><i class="fa fa-subway" aria-hidden="true"></i
+                >Rent-a-Transport</a
+              >
+            </li>
+            <li>
+              <a style="text-decoration: none;"routerLink="busservice" routerLinkActive="active current"
+                ><i class="fa fa-bus" aria-hidden="true"></i>Transport Service</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a style="text-decoration: none;"routerLink="guide" routerLinkActive="active current"
+            ><i class="fa fa-glide-g" aria-hidden="true"></i> Guides</a
+          >
+        </li> -->
+        <li>
+          <a style="text-decoration: none;" routerLink="customerbookings" routerLinkActive="active current"
+            ><i class="fa fa-history" aria-hidden="true"></i> Bookings</a
+          >
+        </li>
+        <!-- <li>
+          <a style="text-decoration: none;"routerLink="payment" routerLinkActive="active current"
+            ><i class="fa fa-google-wallet" aria-hidden="true"></i> Payments</a
+          >
+        </li>
+        <li>
+          <a style="text-decoration: none;"routerLink="feedback" routerLinkActive="active current"
+            ><i class="fa fa-comments-o" aria-hidden="true"></i> Feedbacks</a
+          >
+        </li>
+        
+        <li>
+          <a style="text-decoration: none;"routerLink="packages" routerLinkActive="active current"
+            ><i class="fa fa-users" aria-hidden="true"></i> Packages</a
+          >
+        </li> -->
+        <li>
+          <a style="text-decoration: none;" routerLink="report" routerLinkActive="active current"
+            ><i class="fa fa-flag-o" aria-hidden="true"></i> Reports</a
+          >
+        </li>
+      </ul>
+    </div>
+<input type="checkbox" id="abc" />
+<label for="abc" class="rlabel">
+  <i
+    class="fa fa-chevron-left"
+    aria-hidden="true"
+    id="yes"
+    style="margin-top: 45px; position: fixed;"
+  ></i>
+  <i
+    class="fa fa-chevron-right"
+    aria-hidden="true"
+    style="position: fixed;"
+    id="no"
+  ></i>
+</label>
+
+<div class="rightnav">
+    <header style="margin-top: -24px;">Profile</header>
+    <ul class="side-nav">
+      <li class="nav-item">
+       <img 
+        class="bd-placeholder-img rounded-circle"
+        width="120"
+        height="120"
+        [src]="service.userRole1[0][1].image"
+        style="padding: 5px; margin-left: 5px;"
+      >
+      </li>
+      <li class="nav-item">
+        <a class="site-name">Name</a>
+      </li>
+      <label class="inf"> {{ service.userRole1[0][1].custname}}</label>
+      <li class="nav-item">
+        <a class="site-name">Phone</a>
+      </li>
+      <label class="inf"> {{ service.userRole1[0][1].custphone}}</label><br>
+      <li class="nav-item">
+        <a class="site-name">E-mail</a>
+      </li>
+      <label class="inf"> {{ service.userRole1[0][1].email}}</label>
+      <li class="nav-item">
+        <a class="site-name">Address</a>
+      </li>
+      <label class="inf"> {{ service.userRole1[0][1].custaddress}}</label>
+      
+      <li class="nav-item">
+        <a style="text-decoration: none;"routerLink="/dhrubo/homepage" routerLinkActive="active current" class="site-name"><i class="fa fa-home" aria-hidden="true"></i>
+          Go to Home</a>
+      </li>
+      <li class="nav-item">
+        <a style="text-decoration: none;"routerLink="/dhrubo/homepage" routerLinkActive="active current" class="site-name" (click)="signOut()"><i class="fa fa-sign-out" aria-hidden="true"></i>
+          Sign out</a>
+      </li>
+    </ul>
+</div>
+
+    <section class="content">
+        <div
+          class="collapse"
+          id="navbarToggleExternalContent"
+          style="margin-top: -24px;"
+        >
+          <div class="p-4" style="background-color: #063146; text-align: center;">
+            <h5 class="text-white h4">Welcome <b><i style="color: turquoise;">{{ service.userRole1[0][1].custname}}</i></b></h5>
+          </div>
+        </div>
+        <nav class="navbar" style="background-color: #042331; margin-top: -24px;">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarToggleExternalContent"
+            aria-controls="navbarToggleExternalContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <img
+              alt="Brand"
+              src="../../../assets/images/logo.png"
+              style="height: 40px; width: 70px;"
+            />
+          </button>
+          <h4 class="text-white">Dhrubo Travel & Tourism Agency</h4>
+        </nav>
+  
+        
+        <router-outlet></router-outlet>
+        
+      </section>
+  </body>
+</html>

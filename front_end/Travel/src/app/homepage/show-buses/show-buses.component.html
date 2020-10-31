@@ -1,0 +1,78 @@
+<br>
+<div class="card mb-3" style="max-width: 850px; max-height: 260px; float: left; margin: 1.5rem;" *ngFor="let transport of allTransport">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img [src]="transport.image" class="card-img img-thumbnail" alt="..." style="width: 100%; height: 100%;">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Bus Name</h5>
+        <small>Type: {{transport.transtype}}</small><br>
+        <p class="card-text">Details: <br><b>{{transport.transdetails}}</b></p>
+        <small>Item will be same as you see in the picture</small>
+      </div>
+      <!-- <div class="card-body"> -->
+        &nbsp;&nbsp;<button type="button" class="btn btn-link" (click)="getTransport(transport.transdetid)">Choose your destination here</button>
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
+
+<table class="content-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Pick Up</th>
+      <th>Drop Off</th>
+      <th>Fare</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let bus of allBus">
+      <td>{{bus.busname}}</td>
+      <td>{{bus.start}}</td>
+      <td>{{bus.end}}</td>
+      <td>{{bus.fare}}Tk</td>
+      <td (mouseover)="err($event)">
+        <a class="btn text-muted">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+
+      </a>
+      <button class="btn btn-link" (click)="addProductToCart(bus)" (click)="getBusById(bus.busid,1)" [disabled]="cservice.userRole1.length==0" >
+          <i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+      </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  <!-- <div class="card-deck" > -->
+    <!-- <div class="card" style="width: 25rem; float: left; margin: 1.5rem;" *ngFor="let transport of allTransport">
+      <img [src]="transport.image" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Details: <br>{{transport.transdetails}}.This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+      <div class="card-body">
+          <a href="#" class="card-link">Book Now</a>
+          <a href="#" class="card-link">Add to Wishlist</a>
+      </div>
+    </div> -->
+  <!-- </div> -->
+
+
+
+
+  <!-- <div class="row row-cols-1 row-cols-md-2" *ngFor="let transport of allTransport">
+    <div class="col mb-4">
+      <div class="card">
+        <img [src]="transport.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">{{transport.transdetails}}. This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>
+  </div> -->

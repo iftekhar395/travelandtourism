@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+section{
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  transition: all .5s;
+  background: url('../../../assets/images/nature-wallpapers-1366x768-29.jpg') no-repeat;
+  background-attachment: initial;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.sidebar {
+  position: fixed;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #042331;
+  transition: all .5s ease;
+}
+.sidebar header {
+  font-size: 22px;
+  color: white;
+  line-height: 70px;
+  text-align: center;
+  background: #063146;
+  user-select: none;
+}
+.sidebar ul a{
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 51.5px;
+  font-size: 20px;
+  color: white;
+  padding-left: 40px;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  border-top: 1px solid rgba(255,255,255,.1);
+  transition: .4s;
+}
+ul li:hover a{
+  padding-left: 50px;
+}
+.sidebar ul a i{
+  margin-right: 16px;
+}
+#check{
+  display: none;
+}
+label #btn,label #cancel{
+  position: absolute;
+  background: #042331;
+  border-radius: 3px;
+  cursor: pointer;
+}
+label #btn{
+  left: 40px;
+  top: 25px;
+  font-size: 35px;
+  color: white;
+  padding: 4px 9px;
+  transition: all .5s;
+}
+label #cancel{
+  z-index: 1111;
+  left: -195px;
+  top: 17px;
+  font-size: 30px;
+  color: #0a5275;
+  padding: 4px 9px;
+  transition: all .5s ease;
+}
+#check:checked ~ .sidebar{
+  left: 0;
+}
+#check:checked ~ label #btn{
+  left: 250px;
+  opacity: 0;
+  pointer-events: none;
+}
+#check:checked ~ label #cancel{
+  left: 195px;
+}
+#check:checked ~ section{
+  margin-left: 250px;
+}
+
+
+.submenu li{
+  position: relative;
+}
+
+.submenu li:hover > a{
+  color: aqua;
+}
+.submenu li ul, .submenu li ul li ul{
+  background: #042331;
+  opacity: 0;
+  visibility: hidden;
+  transition: 300ms;
+  z-index: 999;
+  left: 280px;
+  top: -107px;
+  list-style: none;
+  position: absolute;
+  height: auto;
+  min-width: 250px;
+  padding: 0;
+  margin: 0;
+}
+
+.submenu li:hover > ul, .submenu li ul li:hover > ul{
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  left: 0px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .rightnav {
+    position: fixed;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background: #042331;
+    transition: all .5s ease;
+    text-align: center;
+  }
+  .rightnav header {
+    font-size: 22px;
+    color: white;
+    line-height: 70px;
+    text-align: center;
+    background: #063146;
+    user-select: none;
+  }
+
+label.rlabel #yes,label.rlabel #no{
+  position: absolute;
+  background: #042331;
+  border-radius: 3px;
+  cursor: pointer;
+}
+label.rlabel #yes{
+  right: 40px;
+  top: 25px;
+  font-size: 35px;
+  color: white;
+  padding: 4px 9px;
+  transition: all .5s;
+}
+label.rlabel #no{
+  z-index: 1111;
+  right: -195px;
+  top: 17px;
+  font-size: 30px;
+  color: #0a5275;
+  padding: 4px 9px;
+  transition: all .5s ease;
+}
+#abc:checked ~ .rightnav{
+  right: 0px;
+}
+#abc:checked ~ label.rlabel #yes{
+  right: 250px;
+  opacity: 0;
+  pointer-events: none;
+}
+#abc:checked ~ label.rlabel #no{
+  right: 195px;
+}
+#abc:checked ~ section{
+  margin-right: 250px;
+}
+#abc{
+  display: none;
+}
+.rightnav ul a{
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 35px;
+  font-size: 20px;
+  color: white;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  border-top: 1px solid rgba(255,255,255,.1);
+  transition: .4s;
+}
+.rightnav ul a i{
+  margin-right: 16px;
+}
+
+.inf{
+  color: white;
+  margin-left: 0px;
+}
+
+.site-name{
+  padding-left: 0px;
+}

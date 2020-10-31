@@ -1,0 +1,109 @@
+&nbsp;
+<div class="container">
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Open Table
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body ex3">
+
+<div class="col-md-6" style="margin: 0 auto;">
+    <div class="form-group">
+    <label for="customerid">Id</label>
+    <input
+      type="text"
+      class="form-control"
+      id="custid"
+      [(ngModel)]="customerService.currentCustomer.custid"
+      name="custid"
+      disabled
+    />
+  </div>
+  <div class="form-group">
+    <label for="customername">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      required
+      [(ngModel)]="customerService.currentCustomer.custname"
+      name="custname"
+    />
+  </div>
+  <div class="form-group">
+    <label for="customername">Enter your image link here...</label><br>
+      <img [src]="customerService.currentCustomer.image" style="width: 50px; height: 50px;">
+      <br><br>
+    <input type="text" 
+    id="photourl"
+    class="form-control"
+    required
+    [(ngModel)]="customerService.currentCustomer.image"
+    name="photourl"/>
+    </div>
+  <div class="form-group">
+    <label for="phoneno">Phone No.</label>
+    <input
+      type="text"
+      class="form-control"
+      id="custphone"
+      required
+      [(ngModel)]="customerService.currentCustomer.custphone"
+      name="custphone"
+    />
+  </div>
+  
+  <!-- <div class="form-group">
+    <label for="status">Password</label>
+    <input
+      type="pass"
+      class="form-control"
+      id="pass"
+      required
+      [(ngModel)]="customerService.userRole.password"
+      name="Password"
+    />
+  </div> -->
+  <div class="form-group">
+    <label for="address">Address</label>
+    <textarea
+      class="form-control"
+      id="custaddress"
+      [(ngModel)]="customerService.currentCustomer.custaddress"
+      required
+      name="custaddress"
+    ></textarea>
+  </div>
+  <div class="text-center">
+    <button
+    type="submit"
+    class="btn btn-success"
+    (click)="editCustomer()"
+  >
+  
+    Edit</button
+  >&nbsp;
+    <button
+      type="submit"
+      class="btn btn-info"
+      (click)="updateCustomer(customerService.currentCustomer)"
+    >
+      Update</button
+    >&nbsp;
+    <button type="submit" class="btn btn-primary" (click)="clear()">
+      Refresh
+    </button>
+   </div>
+  
+</div>
+
+</div>
+</div>
+</div>
+
+</div>

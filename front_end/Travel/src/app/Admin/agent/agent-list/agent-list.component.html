@@ -1,0 +1,56 @@
+<div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color: turquoise;">Search here</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Default" [(ngModel)]="cid" placeholder="Agent Id" aria-describedby="inputGroup-sizing-sm" (keyup)="insertId(cid)">
+</div>
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Address</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let agent of allAgent">
+            <td scope="row">{{agent.hagentid}}</td>
+            <td>{{agent.hagentname}}</td>
+            <td>{{agent.hagentmobile}}</td>
+            <td>{{agent.emailid}}</td>
+            <td>{{agent.hagentaddress}}</td>
+            <td>
+                <a class="btn btn-outline-primary" (click)="editAgent(agent)">
+                    <i class="fa fa-edit"></i>
+                </a>
+                <a class="btn text-danger" (click)="deleteAgent(agent)">
+                    <i class="fa fa-trash"></i>
+
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td scope="row">{{agentService.agent.hagentid}}</td>
+            <td>{{agentService.agent.hagentname}}</td>
+            <td>{{agentService.agent.hagentmobile}}</td>
+            <td>{{agentService.agent.emailid}}</td>
+            <td>{{agentService.agent.hagentaddress}}</td>
+            <td
+          *ngIf="
+            allAgent.length == 0
+          "
+        ><a class="btn btn-outline-primary" (click)="editAgent(agentService.agent)">
+            <i class="fa fa-edit"></i>
+        </a>
+        <a class="btn text-danger" (click)="deleteAgent(agentService.agent)">
+            <i class="fa fa-trash"></i>
+
+        </a>
+        </td>
+                
+        </tr>
+    </tbody>
+</table>

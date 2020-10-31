@@ -1,0 +1,370 @@
+<br />
+<div class="row">
+  <div class="col-md-5 order-md-2 mb-4" style="padding-right: 40px;">
+    <h4 class="d-flex justify-content-between align-items-center mb-3">
+      <span class="text-muted">Booking Items</span>
+      <span class="badge badge-secondary badge-pill">{{ cart.itemCount }}</span>
+    </h4>
+    <ul class="list-group mb-3" *ngFor="let line of service.allhotelbooking">
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+          <h6 class="my-0">Booking ID:</h6>
+        </div>
+        <span class="text-muted"><b> {{ line[0].bookingid }} </b></span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+          <label class="my-0">Item ID: </label>
+        </div>
+        <span class="text-muted">{{ line[1].hdetid || line[1].busid }}</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+          <label class="my-0">Package Id: </label>
+        </div>
+        <span class="text-muted">
+          {{ line[0].tpackid }}
+        </span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <label class="lbl" for="date">Check In</label>
+        <input
+          type="date"
+          class="form-control-sm"
+          id="tourstart"
+          [value]="line[0].tourstart"
+          name="startdate"
+          disabled
+        />
+        <label class="lbl" for="date">Check Out</label>
+        <input
+          type="date"
+          class="form-control-sm"
+          id="date"
+          [value]="line[0].tourend"
+          name="enddate"
+          disabled
+        />
+      </li>
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <label class="my-0" for="date">Total Rooms/Quantity</label>
+
+        <span class="text-muted">
+          {{ line[1].totalroom }}
+        </span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <label class="my-0" for="persons">Total Person</label>
+
+        <span class="text-muted">
+          {{ line[0].totalperson }}
+        </span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+          <label class="my-0">Subtotal: </label>
+        </div>
+        <span class="text-muted">
+          <b>{{ line[1].subtotal | currency: "Tk ":true:"2.2-2" }}</b>
+        </span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <label class="lbl" for="date">Booking Date</label>
+        <span class="text-muted">{{ currentDate | date: "mediumDate" }} </span>
+      </li>
+    </ul>
+    <ul class="list-group mb-3">
+      <li class="list-group-item d-flex justify-content-between bg-light">
+        <div class="text-success">
+          <h6 class="my-0">Promo code</h6>
+          <small>EXAMPLECODE</small>
+        </div>
+        <span class="text-success">BDT 0</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between">
+        <span>Total </span>
+        <strong> {{ cart.cartPrice | currency: "BDT ":true:"2.2-2" }}</strong>
+      </li>
+    </ul>
+
+    <form class="card p-2">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Promo code" />
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-secondary">Redeem</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-7 order-md-1" style="padding-left: 40px;">
+    <h4 class="mb-3">Personal Info</h4>
+    <!-- <form class="needs-validation" novalidate> -->
+    <!-- <div class="row">
+        <div class="col-md-6">
+        <button type="button" class="btn btn-success btn-lg btn-block" disabled>Book as a Guset</button>
+      </div>
+        <div class="col-md-6">
+        <button class="btn btn-primary btn-lg btn-block" routerLink="/dhrubo/login" routerLinkActive="active current">Sign in</button>
+      </div>
+      </div> -->
+    <div class="form">
+      <div class="mb-3">
+        <label for="firstName">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          placeholder=""
+          [value]="cservice.currentCustomer.custname"
+          required
+          disabled
+        />
+        <div class="invalid-feedback">
+          Valid name is required.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="lastName">Contact no.</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          placeholder=""
+          [value]="cservice.currentCustomer.custphone"
+          required
+          disabled
+        />
+        <div class="invalid-feedback">
+          Valid last name is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="you@example.com"
+          [value]="cservice.currentCustomer.email"
+          disabled
+        />
+        <div class="invalid-feedback">
+          Please enter a valid email address for shipping updates.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="address">Address</label>
+        <input
+          type="text"
+          class="form-control"
+          id="address"
+          placeholder="1234 Main St"
+          [value]="cservice.currentCustomer.custaddress"
+          disabled
+          required
+        />
+        <div class="invalid-feedback">
+          Please enter your address.
+        </div>
+      </div>
+    </div>
+    <hr class="mb-4" />
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="same-address" />
+      <label class="custom-control-label" for="same-address"
+        >Shipping address is the same as my billing address</label
+      >
+    </div>
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="save-info" />
+      <label class="custom-control-label" for="save-info"
+        >Save this information for next time</label
+      >
+    </div>
+    <hr class="mb-4" />
+
+    <h4 class="mb-3">Payment</h4>
+
+    <div class="d-block my-3">
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button
+                class="btn btn-link btn-block text-center"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Make your payment here
+              </button>
+            </h5>
+          </div>
+
+          <div
+            id="collapseOne"
+            class="collapse show"
+            aria-labelledby="headingOne"
+            data-parent="#accordionExample"
+          >
+            <div class="card-body ex3">
+              <div class="form-group">
+                <label for="cid">Customer Id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="custid"
+                  disabled
+                  [value]="cservice.currentCustomer.custid"
+                  [(ngModel)]="paymentService.payment.custid"
+                  name="custid"
+                />
+              </div>
+              <div class="form-group">
+                <label for="bookid">Booking Id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bookingid"
+                  required
+                  [(ngModel)]="bookingid"
+                  [(ngModel)]="paymentService.payment.bookingid"
+                  name="bookingid"
+                  (keyup)="getCustomerById(bookingid)"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="type">Pay Type</label>
+
+                <select
+                  id="inlineFormCustomSelect"
+                  class="custom-select"
+                  [(ngModel)]="paymentService.payment.paytype"
+                  required
+                >
+                  <option selected>Credit Card</option>
+                  <option>Debit Card</option>
+                  <option>Bkash</option>
+                  <option>Rocket</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="number">Account/Card number</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="number"
+                  placeholder="0123456789"
+                  [(ngModel)]="cardNumber"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="payableamount">Amount</label>
+                <input
+                  class="form-control"
+                  id="amount"
+                  required
+                  [(ngModel)]="service.bookh.subtotal"
+                  [(ngModel)]="paymentService.payment.amount"
+                  name="amount"
+                  disabled
+                />
+              </div>
+
+              <div class="text-center">
+                <br>
+                <button
+                  class="btn btn-success"
+                  type="submit"
+                  (click)="createPayment(paymentService.payment)"
+                >
+                  Confirm Payment
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="form">
+        <div class="col-md-6 mb-3">
+          <label for="custid">Customer Id</label>
+          <input
+            type="text"
+            class="form-control"
+            id="custid"
+            [value]="cservice.currentCustomer.custid"
+            [(ngModel)]="paymentService.payment.custid"
+            disabled
+          />
+          <div class="invalid-feedback">
+            Name on card is required
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="number">Account/Card number</label>
+          <input
+            type="text"
+            class="form-control"
+            id="number"
+            placeholder="0123456789"
+            required
+          />
+          <div class="invalid-feedback">
+            Credit card number is required
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-3 mb-3">
+          <label for="bookingid">Booking Id</label>
+          <input
+            type="text"
+            class="form-control"
+            id="bookingid"
+            [(ngModel)]="paymentService.payment.bookingid"
+            required
+          />
+          <div class="invalid-feedback">
+            Pls input your booking id number
+          </div>
+        </div>
+        <div class="form-group col-md-3 mb-3">
+          <label for="amount">Amount</label>
+          <input
+            type="text"
+            class="form-control"
+            id="amount"
+            [(ngModel)]="paymentService.payment.amount"
+            required
+          />
+          <div class="invalid-feedback">
+            Pls enter the amount
+          </div>
+        </div>
+        <div class="form-group col-md-6 mb-3">
+          <label></label>
+          <button class="btn btn-secondary btn-lg btn-block" type="submit" 
+          (click)="createPayment(paymentService.payment)"
+          >
+            Confirm Payment
+          </button>
+        </div>
+      </div> -->
+    <hr class="mb-4" />
+    <button class="btn btn-primary btn-lg btn-block" type="submit" routerLink="/dhrubo/confirmation" 
+    routerLinkActive="active current"
+    (click)="clearCart()"
+    >
+      Pay Later
+    </button>
+    <!-- </form> -->
+  </div>
+</div>

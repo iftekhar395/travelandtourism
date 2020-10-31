@@ -1,0 +1,41 @@
+&nbsp;
+<!-- Form -->
+<div class="container">
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Open Form
+            <!-- Table  -->
+            <!-- <div class="col-md-11"> -->
+            </button>
+          </h5>
+        </div>
+    
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body ex3">
+              <app-agent-form></app-agent-form>
+            <!-- </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Open Table
+        <!-- Table  -->
+        <!-- <div class="col-md-11"> -->
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body ex3">
+          <app-agent-list></app-agent-list>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,246 @@
+<h1 class="text-center">Add Package</h1>
+<div class="form-group">
+  <label for="tpackid">Package Id</label>
+  <input
+    type="text"
+    class="form-control"
+    id="tpackid"
+    [(ngModel)]="pService.allPackage.tpackid"
+    name="tpackid"
+    disabled
+  />
+</div>
+<div class="form-group">
+  <label for="tpackfrom">Tour From</label>
+  <select
+    class="custom-select"
+    id="tpackfrom"
+    required
+    [(ngModel)]="pService.allPackage.tpackfrom"
+    name="tpackfrom"
+  >
+    
+  <option> Bagerhat </option>
+  <option> Bandarban </option>
+  <option> Barguna </option>
+  <option> Barishal </option>
+  <option> Bhola </option>
+  <option> Bogura </option>
+  <option> Brahmanbaria </option>
+  <option> Chandpur </option>
+  <option> Chapai Nawabganj</option>
+  <option> Chattogram </option>
+  <option> Chuadanga </option>
+  <option> Cox's Bazar </option>
+  <option> Cumilla </option>
+  <option> Dhaka </option>
+  <option> Dinajpur </option>
+  <option> Faridpur </option>
+  <option> Feni </option>
+  <option> Gaibandha </option>
+  <option> Gazipur </option>
+  <option> Gopalganj </option>
+  <option> Habiganj </option>
+  <option> Jamalpur </option>
+  <option> Jashore  </option>
+  <option> Jhalokati </option>
+  <option> Jhenaidah </option>
+  <option> Joypurhat </option>
+  <option> Khagrachhari </option>
+  <option> Khulna </option>
+  <option> Kishoreganj </option>
+  <option> Kurigram </option>
+  <option> Kushtia </option>
+  <option> Lakshmipur </option>
+  <option> Lalmonirhat </option>
+  <option> Madaripur </option>
+  <option> Magura </option>
+  <option> Manikganj </option>
+  <option> Meherpur </option>
+  <option> Moulvibazar </option>
+  <option> Munshiganj </option>
+  <option> Mymensingh </option>
+  <option> Naogaon </option>
+  <option> Narail </option>
+  <option> Narayanganj </option>
+  <option> Narsingdi </option>
+  <option> Natore </option>
+  <option> Netrokona </option>
+  <option> Nilphamari </option>
+  <option> Noakhali </option>
+  <option> Pabna </option>
+  <option> Panchagarh </option>
+  <option> Patuakhali </option>
+  <option> Pirojpur </option>
+  <option> Rajbari </option>
+  <option> Rajshahi </option>
+  <option> Rangamati </option>
+  <option> Rangpur </option>
+  <option> Satkhira </option>
+  <option> Shariatpur </option>
+  <option> Sherpur </option>
+  <option> Sunamganj </option>
+  <option> Sylhet </option>
+  <option> Sirajganj </option>
+  <option> Tangail </option>
+  <option> Thakurgaon </option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="tpackto">Tour To</label>
+  <select
+    class="custom-select"
+    id="tpackto"
+    required
+    [(ngModel)]="pService.allPackage.tpackto"
+    name="tpackto"
+  >
+    
+  <option> Bagerhat </option>
+  <option> Bandarban </option>
+  <option> Barguna </option>
+  <option> Barishal </option>
+  <option> Bhola </option>
+  <option> Bogura </option>
+  <option> Brahmanbaria </option>
+  <option> Chandpur </option>
+  <option> Chapai Nawabganj</option>
+  <option> Chattogram </option>
+  <option> Chuadanga </option>
+  <option> Cox's Bazar </option>
+  <option> Cumilla </option>
+  <option> Dhaka </option>
+  <option> Dinajpur </option>
+  <option> Faridpur </option>
+  <option> Feni </option>
+  <option> Gaibandha </option>
+  <option> Gazipur </option>
+  <option> Gopalganj </option>
+  <option> Habiganj </option>
+  <option> Jamalpur </option>
+  <option> Jashore  </option>
+  <option> Jhalokati </option>
+  <option> Jhenaidah </option>
+  <option> Joypurhat </option>
+  <option> Khagrachhari </option>
+  <option> Khulna </option>
+  <option> Kishoreganj </option>
+  <option> Kurigram </option>
+  <option> Kushtia </option>
+  <option> Lakshmipur </option>
+  <option> Lalmonirhat </option>
+  <option> Madaripur </option>
+  <option> Magura </option>
+  <option> Manikganj </option>
+  <option> Meherpur </option>
+  <option> Moulvibazar </option>
+  <option> Munshiganj </option>
+  <option> Mymensingh </option>
+  <option> Naogaon </option>
+  <option> Narail </option>
+  <option> Narayanganj </option>
+  <option> Narsingdi </option>
+  <option> Natore </option>
+  <option> Netrokona </option>
+  <option> Nilphamari </option>
+  <option> Noakhali </option>
+  <option> Pabna </option>
+  <option> Panchagarh </option>
+  <option> Patuakhali </option>
+  <option> Pirojpur </option>
+  <option> Rajbari </option>
+  <option> Rajshahi </option>
+  <option> Rangamati </option>
+  <option> Rangpur </option>
+  <option> Satkhira </option>
+  <option> Shariatpur </option>
+  <option> Sherpur </option>
+  <option> Sunamganj </option>
+  <option> Sylhet </option>
+  <option> Sirajganj </option>
+  <option> Tangail </option>
+  <option> Thakurgaon </option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="tpackfare">Fare</label>
+  <input
+    type="text"
+    class="form-control"
+    id="tpackfare"
+    required
+    [(ngModel)]="pService.allPackage.tpackfare"
+    name="tpackfare"
+  />
+</div>
+<div class="form-group">
+  <label for="type">Package Type</label>
+  <select
+    class="custom-select"
+    id="type"
+    required
+    [(ngModel)]="pService.allPackage.packagetype"
+    name="packagetype"
+  >
+    <option selected>Corporate</option>
+    <option>Couple</option>
+    <option>Family</option>
+    <option>Friends</option>
+    <option>Group</option>
+    <option>Offers</option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="type">Package Days</label>
+  <input
+    class="form-control"
+    id="packageday"
+    required
+    [(ngModel)]="pService.allPackage.packageday"
+    name="packageday"
+    placeholder="Ex. 2 Nights 3 Days"
+  />
+</div>
+
+<div class="form-group">
+  <label for="img">Image Url</label>
+  <input
+    class="form-control"
+    id="packimg"
+    required
+    [(ngModel)]="pService.allPackage.packimg"
+    name="packimg"
+    placeholder="Ex. https://upload.wikimedia.org/wikipedia/commons/4/48/yourpic.jpg"
+  />
+</div>
+
+<div class="form-group">
+  <label for="desc">Package Informations</label>
+  <textarea
+    class="form-control"
+    id="packdesc"
+    required
+    [(ngModel)]="pService.allPackage.packdesc"
+    name="packdesc"
+    placeholder="Maximum 450 characters allowed"
+  ></textarea>
+</div>
+<div class="text-center">
+  <button
+    type="submit"
+    class="btn btn-success"
+    (click)="createPack(pService.allPackage)"
+  >
+    Add</button
+  >&nbsp;
+  <button
+    type="submit"
+    class="btn btn-info"
+    (click)="updatePack(pService.allPackage)"
+  >
+    Update</button
+  >&nbsp;
+  <button type="submit" class="btn btn-primary" (click)="clear()">
+    Refresh
+  </button>
+</div>

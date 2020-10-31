@@ -1,0 +1,74 @@
+    <h1 class="text-center">Add Agent</h1>
+    <div class="form-group">
+      <label for="agentid">Agent Id</label>
+      <input
+        type="text"
+        class="form-control"
+        id="agntid"
+        [(ngModel)]="agentService.agent.hagentid"
+        name="hagentid"
+        disabled
+      />
+    </div>
+    <div class="form-group">
+      <label for="agentname">Agent Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        required
+        [(ngModel)]="agentService.agent.hagentname"
+        name="agentname"
+      />
+    </div>
+    <div class="form-group">
+      <label for="phoneno">Phone No.</label>
+      <input
+        type="text"
+        class="form-control"
+        id="agentphone"
+        required
+        [(ngModel)]="agentService.agent.hagentmobile"
+        name="agentphone"
+      />
+    </div>
+    <div class="form-group">
+      <label for="mail">E-mail</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        required
+        [(ngModel)]="agentService.agent.emailid"
+        name="email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <textarea
+        class="form-control"
+        id="custaddress"
+        required
+        [(ngModel)]="agentService.agent.hagentaddress"
+        name="agentaddress"
+      ></textarea>
+    </div>
+    <div class="text-center">
+      <button
+        type="submit"
+        class="btn btn-success"
+        (click)="createAgent(agentService.agent)"
+      >
+        Add</button
+      >&nbsp;
+      <button
+        type="submit"
+        class="btn btn-info"
+        (click)="updateAgent(agentService.agent)"
+      >
+        Update</button
+      >&nbsp;
+      <button type="submit" class="btn btn-primary" (click)="clear()">
+        Refresh
+      </button>
+    </div>    

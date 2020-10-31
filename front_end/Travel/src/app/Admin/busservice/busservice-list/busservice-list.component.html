@@ -1,0 +1,33 @@
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Start</th>
+            <th scope="col">End</th>
+            <th scope="col">Fare</th>
+            <th scope="col">Status</th>
+            <th scope="col">Transport Id</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let bus of getBus">
+            <td scope="row">{{bus.busid}}</td>
+            <td>{{bus.busname}}</td>
+            <td>{{bus.start}}</td>
+            <td>{{bus.end}}</td>
+            <td>{{bus.fare}}</td>
+            <td>{{bus.status}}</td>
+            <td>{{bus.transdetid}}</td>
+
+                <a class="btn btn-outline-primary" (click)="editBus(bus)">
+                    <i class="fa fa-edit"></i>
+                </a>
+                <a class="btn text-danger" (click)="deleteBus(bus.busid)">
+                    <i class="fa fa-trash"></i>
+
+                </a>
+        </tr>
+    </tbody>
+</table>

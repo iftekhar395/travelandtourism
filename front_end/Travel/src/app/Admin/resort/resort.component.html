@@ -1,0 +1,194 @@
+&nbsp;
+<!-- Form -->
+<div class="container">
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button
+            class="btn btn-link btn-block text-center"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapseOne"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            Open Form
+          </button>
+        </h5>
+      </div>
+
+      <div
+        id="collapseOne"
+        class="collapse show"
+        aria-labelledby="headingOne"
+        data-parent="#accordionExample"
+      >
+        <div class="card-body ex3">
+          <div class="form-group">
+            <label for="hotelid">Hotel Id</label>
+            <input
+              type="text"
+              class="form-control"
+              id="hdetid"
+              [(ngModel)]="hotelService.currentHotel.hdetid"
+              name="hdetid"
+              disabled
+            />
+          </div>
+          <div class="form-group">
+            <label for="agent">Agent Id</label>
+            <input
+              type="text"
+              class="form-control"
+              id="hagentid"
+              required
+              [(ngModel)]="hotelService.currentHotel.hagentid"
+              name="hagentid"
+            />
+          </div>
+          <div class="form-group">
+            <label for="phoneno">Room Type</label>
+            <input
+              type="text"
+              class="form-control"
+              id="roomtype"
+              required
+              [(ngModel)]="hotelService.currentHotel.roomtype"
+              name="roomtype"
+            />
+          </div>
+          <div class="form-group">
+            <label for="mail">Rent</label>
+            <input
+              type="text"
+              class="form-control"
+              id="rent"
+              required
+              [(ngModel)]="hotelService.currentHotel.rent"
+              name="rent"
+            />
+          </div>
+          <div class="form-group">
+            <label for="address">Facilities</label>
+            <textarea
+              class="form-control"
+              id="facilities"
+              required
+              [(ngModel)]="hotelService.currentHotel.facilities"
+              name="facilities"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="inlineFormCustomSelect">Type</label>
+            <select
+              class="custom-select"
+              id="inlineFormCustomSelect"
+              required
+              [(ngModel)]="hotelService.currentHotel.type"
+              name="type"
+            >
+              <!-- <option value="Hotel" selected>Hotel</option> -->
+              <option value="Resort">Resort</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="photourl">Image Url</label><br />
+            <input
+              type="text"
+              id="photourl"
+              class="form-control"
+              required
+              [(ngModel)]="hotelService.currentHotel.imgurl"
+              name="photourl"
+            />
+          </div>
+          <div class="text-center">
+            <button
+              type="submit"
+              class="btn btn-success"
+              (click)="createHotel(hotelService.currentHotel)"
+            >
+              Add</button
+            >&nbsp;
+            <button
+              type="submit"
+              class="btn btn-info"
+              (click)="updateHotel(hotelService.currentHotel)"
+            >
+              Update</button
+            >&nbsp;
+            <button type="submit" class="btn btn-primary" (click)="clear()">
+              Refresh
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button
+            class="btn btn-link btn-block text-center collapsed"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapseTwo"
+            aria-expanded="false"
+            aria-controls="collapseTwo"
+          >
+            Open Table
+          </button>
+        </h5>
+      </div>
+      <div
+        id="collapseTwo"
+        class="collapse"
+        aria-labelledby="headingTwo"
+        data-parent="#accordionExample"
+      >
+        <div class="card-body ex3">
+          <table class="table table-hover table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Agent Id</th>
+                <th scope="col">Room Type</th>
+                <th scope="col">Rent</th>
+                <th scope="col">Facilities</th>
+                <th scope="col">Type</th>
+                <th scope="col">Image</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let hotel of allHotel">
+                <td scope="row">{{ hotel.hdetid }}</td>
+                <td>{{ hotel.hagentid }}</td>
+                <td>{{ hotel.roomtype }}</td>
+                <td>{{ hotel.rent }}</td>
+                <td>{{ hotel.facilities }}</td>
+                <td>{{ hotel.type }}</td>
+                <td>
+                  <img
+                    [src]="hotel.imgurl"
+                    style="width: 50px; height: 50px;"
+                  />
+                </td>
+                <a
+                  class="btn btn-outline-primary mt-2"
+                  (click)="editHotel(hotel)"
+                >
+                  <i class="fa fa-edit"></i>
+                </a>
+                <a class="btn text-danger" (click)="deleteHotel(hotel.hdetid)">
+                  <i class="fa fa-trash"></i>
+                </a>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+<!-- <h1 class="text-center">Add Hotel</h1> -->
+<!-- <form> -->
+<div class="form-group">
+  <label for="hotelid">Hotel Id</label>
+  <input
+    type="text"
+    class="form-control"
+    id="hdetid"
+    [(ngModel)]="hotelService.currentHotel1.hdetid"
+    name="hdetid"
+    disabled
+  />
+</div>
+<div class="form-group">
+  <label for="agent">Agent Id</label>
+  <input
+    type="text"
+    class="form-control"
+    id="hagentid"
+    required
+    [(ngModel)]="hotelService.currentHotel1.hagentid"
+    name="hagentid"
+  />
+</div>
+<div class="form-group">
+  <label for="phoneno">Room Type</label>
+  <input
+    type="text"
+    class="form-control"
+    id="roomtype"
+    required
+    [(ngModel)]="hotelService.currentHotel1.roomtype"
+    name="roomtype"
+  />
+</div>
+<div class="form-group">
+  <label for="mail">Rent</label>
+  <input
+    type="text"
+    class="form-control"
+    id="rent"
+    required
+    [(ngModel)]="hotelService.currentHotel1.rent"
+    name="rent"
+  />
+</div>
+<div class="form-group">
+  <label for="address">Facilities</label>
+  <textarea
+    class="form-control"
+    id="facilities"
+    required
+    [(ngModel)]="hotelService.currentHotel1.facilities"
+    name="facilities"
+  ></textarea>
+</div>
+<!-- <div class="form-group">
+  <label for="address">Upload Image</label><br>
+<img [src]="imgUrl" #Image accept="image/*" style="width: 150px; height: 100px;" ><br><br>
+<input type="file" 
+id="photourl"
+required
+[(ngModel)]="imgUrl"
+(change)="handleFileInput($event.target.files)"
+name="photourl">
+</div> -->
+<!-- <div type="submit" class="btn btn-info">Add</div>  (change)="handleFileInput($event.target.files)"-->
+    <!-- [disabled]="Image.value=='' || !imageForm.valid" -->
+    <div class="form-group">
+      <label for="inlineFormCustomSelect">Type</label>
+    <select
+    class="custom-select"
+    id="inlineFormCustomSelect"
+    required
+    [(ngModel)]="hotelService.currentHotel1.type"
+    name="type">
+  <option>Hotel</option>
+  <!-- <option>Resort</option> -->
+  </select>
+    </div>
+
+    <div class="form-group">
+      <label for="photourl">Image Url</label><br>
+    <input type="text" 
+    id="photourl"
+    class="form-control"
+    required
+    [(ngModel)]="hotelService.currentHotel1.imgurl"
+    name="photourl"/>
+    </div>
+<div class="text-center">
+  <button
+    type="submit"
+    class="btn btn-success"
+    (click)="createHotel(hotelService.currentHotel1)"
+  >
+    Add</button
+  >&nbsp;
+  <button
+    type="submit"
+    class="btn btn-info"
+    (click)="updateHotel(hotelService.currentHotel1)"
+  >
+    Update</button
+  >&nbsp;
+  <button type="submit" class="btn btn-primary" (click)="clear()">
+    Refresh
+  </button>
+</div>

@@ -1,0 +1,75 @@
+<div 
+class="form-signin">
+<h2>Pay here</h2>
+     <div class="form-label-group">
+        <input
+          type="text"
+          class="form-control"
+          id="custid"
+          disabled
+          [value]="cservice.currentCustomer.custid"
+          [(ngModel)]="paymentService.payment.custid"
+          name="custid"
+        />
+        <label for="cid">Customer Id</label>
+      </div>
+      <div class="form-label-group">
+        <input
+          type="text"
+          class="form-control"
+          id="bookingid"
+          required
+          [(ngModel)]="bookingid"
+          [(ngModel)]="paymentService.payment.bookingid"
+          name="bookingid"
+          (keyup)="getCustomerById(bookingid)"
+        />
+        <label for="bookid">Booking Id</label>
+      </div>
+
+      <div class="form-label-group">
+
+        <select class="custom-select "
+        class="inlineFormCustomSelect"
+        [(ngModel)]="paymentService.payment.paytype"
+        style="padding: .75rem;
+        width: -moz-available;
+        border-radius: .25rem;"
+        required
+        >
+        <option>Credit Card</option>
+        <option>Debit Card</option>
+        <option>Bkash</option>
+        <option>Rocket</option>
+          </select>
+
+      </div>
+      <div class="form-label-group">
+        <input
+          type="text"
+          class="form-control"
+          id="number"
+          placeholder="0123456789"
+          [(ngModel)]="cardNumber"
+          required
+        />
+        
+        <label for="number">Account/Card number</label>
+      </div>
+      
+      <div class="form-label-group">
+        <input
+          class="form-control"
+          id="amount"
+          required
+          [(ngModel)]="service.bookh.subtotal"
+          name="amount"
+          disabled
+        />
+        <label for="payableamount">Amount</label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit"  (click)="createPayment(paymentService.payment)">
+        Submit
+      </button>
+      <br>
+</div>

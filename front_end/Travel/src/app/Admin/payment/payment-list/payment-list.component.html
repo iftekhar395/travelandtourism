@@ -1,0 +1,32 @@
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Payment Id</th>
+            <th scope="col">Customer Id</th>
+            <th scope="col">Booking Id</th>
+            <th scope="col">Payment Date</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Pay Type</th>
+            <th scope="col">Status</th>
+            <!-- <th scope="col">Actions</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let payment of allPayment">
+            <td scope="row">{{payment.payid}}</td>
+            <td>{{payment.custid}}</td>
+            <td>{{payment.bookingid}}</td>
+            <td>{{payment.paydate}}</td>
+            <td>{{payment.amount}}</td>
+            <td>{{payment.paytype}}</td>
+            <td>{{payment.status}}</td>
+                <!-- <a class="btn btn-outline-primary" (click)="editPayment(payment)">
+                    <i class="fa fa-edit" aria-hidden="true"></i>
+                </a> -->
+                <!-- <a class="btn text-danger" (click)="deletePayment(payment.payid)">
+                    <i class="fa fa-trash"></i>
+
+                </a> -->
+        </tr>
+    </tbody>
+</table>

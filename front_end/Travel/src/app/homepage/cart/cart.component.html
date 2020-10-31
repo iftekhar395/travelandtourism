@@ -1,0 +1,339 @@
+<!-- <div class="container-fluid"> -->
+<div class="row">
+  <div class="col mt-2">
+    <h2 class="text-center">Your Cart</h2>
+    <br />
+    <table class="table table-striped p-2">
+      <thead>
+        <tr>
+          <th>Quantity</th>
+          <!-- <th >Item Id</th> -->
+          <th>Items</th>
+          <th>Tour Start</th>
+          <th>Tour End</th>
+          <th>Total Days</th>
+          <th class="text-center">Total Persons</th>
+          <th class="text-center">Price</th>
+          <th class="text-center">Subtotal</th>
+          <th class="text-center">Booking Date</th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngIf="
+            cart.lines.length == 0 &&
+            cart.pckg.length == 0 &&
+            cart.tcart.length == 0
+          "
+        >
+          <td colspan="11" class="text-center">
+            Your cart is empty
+          </td>
+        </tr>
+
+        <tr *ngFor="let line of cart.lines">
+          <td>
+            <input
+              type="number"
+              class="form-control-sm"
+              style="width: 5em;"
+              [value]="line.quantity"
+              (change)="cart.updateQuantity(line.hotel, $event.target.value)"
+            />
+          </td>
+          <td>{{ line.hotel.roomtype }}</td>
+          <td>
+            <input
+              #fromInput
+              type="date"
+              class="form-control-sm"
+              id="date"
+              (change)="cart.updateTotalDays(line.hotel)"
+              [value]="line.defaultFrom"
+              (input)="line.parseDates(fromInput.value, toInput.value)"
+              [(ngModel)]="line.defaultFrom"
+              required
+              name="startdate"
+            />
+            <div *ngFor="let single of service.bookNow">
+              <div
+                aria-colspan="4"
+                class="row alert alert-danger alert-dismissible fade show"
+                role="alert"
+                *ngIf="
+                  (single.tourstart <= line.defaultFrom &&
+                    line.defaultFrom <= single.tourend) ||
+                  (line.defaultFrom <= single.tourstart &&
+                    single.tourstart <= line.defaultTo)
+                "
+              >
+                <strong>{{ errorMessage }}</strong>
+                <!-- <input [value]='true' [(ngModel)]="showAlert" hidden/>  -->
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+          </td>
+
+          <td>
+            <input
+              #toInput
+              type="date"
+              class="form-control-sm"
+              id="date"
+              (change)="cart.updateTotalDays(line.hotel)"
+              [value]="line.defaultTo"
+              (input)="line.parseDates(fromInput.value, toInput.value)"
+              [(ngModel)]="line.defaultTo"
+              required
+              name="enddate"
+            />
+          </td>
+          <td class="text-center">{{ line.totalDays }}</td>
+          <td class="text-center">
+            <input
+              name="totalperson"
+              id="totalperson"
+              type="number"
+              class="form-control-sm"
+              style="width: 5em;"
+              [(ngModel)]="line.tperson"
+              required
+            />
+          </td>
+          <td class="text-right">
+            {{ line.hotel.rent | currency: "Tk ":true:"2.2-2" }}
+          </td>
+          <td class="text-right">
+            {{ line.lineTotal | currency: "Tk ":true:"2.2-2" }}
+          </td>
+          <td
+            class="text-center"
+            [(ngModel)]="service.bnow.bookingdate"
+            ngDefaultControl
+          >
+            {{ currentDate | date: "yyyy-MM-dd HH:mm:ss" }}
+          </td>
+
+          <td class="text-center">
+            <button
+              class="btn btn-sm btn-danger"
+              (click)="cart.removeLine(line.hotel.hdetid)"
+            >
+              Remove
+            </button>
+          </td>
+        </tr>
+
+        <tr *ngFor="let line of cart.pckg">
+          <td>
+            <input
+              type="number"
+              class="form-control-sm"
+              style="width: 5em;"
+              [value]="line.quantity"
+              (change)="cart.updatePackQuantity(line.pack, $event.target.value)"
+            />
+          </td>
+          <td>{{ line.pack.packagetype }}</td>
+          <td>
+            <input
+              type="date"
+              class="form-control-sm"
+              id="date"
+              [value]="line.defaultFrom"
+              [(ngModel)]="line.defaultFrom"
+              required
+              name="startdate"
+            />
+            <div *ngFor="let single of service.bookNowPack">
+              <div aria-colspan="4" class="row alert alert-danger alert-dismissible fade show" role="alert"  *ngIf="single.tourstart<=line.defaultFrom && line.defaultFrom<=single.tourend || line.defaultFrom<=single.tourstart && single.tourstart<=line.defaultTo ">
+                <strong>{{ errorMessage }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+  </div>
+  
+          </td>
+          <td>
+            <input
+              type="date"
+              class="form-control-sm"
+              id="date"
+              [value]="line.defaultTo"
+              [(ngModel)]="line.defaultTo"
+              required
+              name="enddate"
+            />
+          </td>
+          <td class="text-center"></td>
+          <td class="text-center">
+            <input
+              name="totalperson"
+              id="totalperson"
+              type="number"
+              class="form-control-sm"
+              style="width: 5em;"
+              [(ngModel)]="line.tperson"
+              required
+            />
+          </td>
+          <td class="text-right">
+            {{ line.pack.tpackfare | currency: "Tk ":true:"2.2-2" }}
+          </td>
+          <td class="text-right">
+            {{ line.lineTotal | currency: "Tk ":true:"2.2-2" }}
+          </td>
+          <td
+            class="text-center"
+            [(ngModel)]="service.bnow.bookingdate"
+            ngDefaultControl
+          >
+            {{ currentDate | date: "yyyy-MM-dd HH:mm:ss" }}
+          </td>
+
+          <td class="text-center">
+            <button
+              class="btn btn-sm btn-danger"
+              (click)="cart.removePackLine(line.pack.tpackid)"
+            >
+              Remove
+            </button>
+          </td>
+        </tr>
+
+        <tr *ngFor="let line of cart.tcart">
+          <td>
+            <input
+              type="number"
+              class="form-control-sm"
+              style="width: 5em;"
+              [value]="line.quantity"
+              (change)="cart.updateTransQuantity(line.bd, $event.target.value)"
+            />
+          </td>
+          <td>{{ line.bd.busname }}</td>
+          <td>
+            <input
+              #fromInput
+              type="date"
+              class="form-control-sm"
+              id="date"
+              (change)="cart.updateTransTotalDays(line.bd)"
+              [value]="line.defaultFrom"
+              (input)="line.parseDates(fromInput.value, toInput.value)"
+              [(ngModel)]="line.defaultFrom"
+              required
+              name="startdate"
+            />
+            <div *ngFor="let single of service.bookNowTrans">
+              <div aria-colspan="4" class="row alert alert-danger alert-dismissible fade show" role="alert"  *ngIf="single.tourstart<=line.defaultFrom && line.defaultFrom<=single.tourend || line.defaultFrom<=single.tourstart && single.tourstart<=line.defaultTo ">
+                <strong>{{ errorMessage }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+  </div>
+          </td>
+          <td>
+            <input
+              #toInput
+              type="date"
+              class="form-control-sm"
+              id="date"
+              (change)="cart.updateTransTotalDays(line.bd)"
+              [value]="line.defaultTo"
+              (input)="line.parseDates(fromInput.value, toInput.value)"
+              [(ngModel)]="line.defaultTo"
+              required
+              name="enddate"
+            />
+          </td>
+          <td class="text-center">{{ line.totalDays }}</td>
+          <td class="text-center">
+            <input
+              name="totalperson"
+              id="totalperson"
+              type="number"
+              class="form-control-sm"
+              style="width: 5em;"
+              [(ngModel)]="line.tperson"
+              required
+            />
+          </td>
+          <td class="text-right">
+            {{ line.bd.fare | currency: "Tk ":true:"2.2-2" }}
+          </td>
+          <td class="text-right">
+            {{ line.lineTotal | currency: "Tk ":true:"2.2-2" }}
+          </td>
+          <td
+            class="text-center"
+            [(ngModel)]="service.bnow.bookingdate"
+            ngDefaultControl
+          >
+            {{ currentDate | date: "yyyy-MM-dd HH:mm:ss" }}
+          </td>
+
+          <td class="text-center">
+            <button
+              class="btn btn-sm btn-danger"
+              (click)="cart.removeTransLine(line.bd.busid)"
+            >
+              Remove
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="7" class="text-right">Total:</td>
+          <td class="text-right">
+            {{ cart.cartPrice | currency: "Tk ":true:"2.2-2" }}
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="text-center">
+      <button
+        class="btn btn-primary m-1"
+        routerLink="/dhrubo/homepage"
+        routerLinkActive="active current"
+      >
+        Continue Shopping
+      </button>
+      <button
+        class="btn btn-secondary m-1"
+        routerLink="/dhrubo/booknow"
+        routerLinkActive="active current"
+        [disabled]="
+          cart.lines.length == 0 &&
+          cart.pckg.length == 0 &&
+          cart.tcart.length == 0
+        "
+        (click)="createHotelBook(cart.lines, cart.pckg, cart.tcart)"
+        (click)="getCustomerById(cusService.userRole1[0][1].custid)"
+        
+        (click)="getAllHotelBooking(cusService.userRole1[0][1].custid, formatDate())"
+      >
+        <!-- 
+        [disabled]="cart.lines.length == 0 && cart.pckg.length == 0 && cart.tcart.length == 0 || service.bookNow[0].tourstart==cart.lines[0].defaultFrom" -->
+
+        Book Now
+      </button>
+    </div>
+  </div>
+</div>
+<!-- </div> -->

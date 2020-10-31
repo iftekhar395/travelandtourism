@@ -1,0 +1,77 @@
+<!-- <div class="col-md-12"> -->
+    <!-- <h1 class="text-center">Add Guide</h1> -->
+    <!-- <form> -->
+    <div class="form-group">
+      <label for="guideid">Guide Id</label>
+      <input
+        type="text"
+        class="form-control"
+        id="gid"
+        [(ngModel)]="guideService.currentGuide.gid"
+        name="gid"
+      />
+    </div>
+    <div class="form-group">
+      <label for="guidename">Guide Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        required
+        [(ngModel)]="guideService.currentGuide.name"
+        name="name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="phoneno">Phone No.</label>
+      <input
+        type="text"
+        class="form-control"
+        id="mobile"
+        required
+        [(ngModel)]="guideService.currentGuide.mobile"
+        name="mobile"
+      />
+    </div>
+    <div class="form-group">
+      <label for="mail">E-mail</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        required
+        [(ngModel)]="guideService.currentGuide.email"
+        name="email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="guideaddress">Address</label>
+      <textarea
+        class="form-control"
+        id="address"
+        required
+        [(ngModel)]="guideService.currentGuide.address"
+        name="address"
+      ></textarea>
+    </div>
+    <!-- <div type="submit" class="btn btn-info">Add</div> -->
+    <div class="text-center">
+      <button
+        type="submit"
+        class="btn btn-success"
+        (click)="createGuide(guideService.currentGuide)"
+      >
+        Add</button
+      >&nbsp;
+      <button
+        type="submit"
+        class="btn btn-info"
+        (click)="updateGuide(guideService.currentGuide)"
+      >
+        Update</button
+      >&nbsp;
+      <button type="submit" class="btn btn-primary" (click)="clear()">
+        Refresh
+      </button>
+    </div>
+            

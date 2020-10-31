@@ -1,0 +1,46 @@
+<!-- <div class="main">
+
+
+<div class="card">
+
+<div class="image">
+   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Gfp-missouri-st-louis-clubhouse-pond-and-scenery.jpg/1199px-Gfp-missouri-st-louis-clubhouse-pond-and-scenery.jpg">
+</div>
+<div class="title">
+ <h1>
+Write title Here</h1>
+</div>
+<div class="des">
+ <p>You can Add Desccription Here...</p>
+<button>Read More...</button>
+</div>
+</div>
+
+</div> -->
+<br>
+<div class="card" *ngFor="let hotel of allHotel">
+  <img
+    class="card-image"
+    [src]="hotel.imgurl"
+    style="width: 300px; height: 225px;"
+  />
+  <div class="card-text">
+    <span class="date">{{ hotel.type }}</span>
+    <h2>{{ hotel.roomtype }}</h2>
+    <div class="scroll">{{ hotel.facilities }}</div>
+  </div>
+  <div class="card-stats">
+    <div class="stat">
+      <a routerLink="/dhrubo/book" routerLinkActive="active current"
+        >Book Now</a
+      >
+    </div>
+    <div class="stat border">
+      <div class="value">{{ hotel.rent }}Tk</div>
+      <div class="type">Per Day</div>
+    </div>
+    <div class="stat" (mouseover)="err($event)">
+      <button class="btn btn-link" type="button" style="text-decoration: none;" (click)="addProductToCart(hotel)"  (click)="getHotelById(hotel.hdetid,1)" [disabled]="cservice.userRole1.length==0">Add to Wishlist</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<br>
+<div class="card mb-3" style="max-width: 850px; max-height: 260px; float: left; margin: 1.5rem;" *ngFor="let transport of allTransport">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img [src]="transport.image" class="card-img img-thumbnail" alt="..." style="width: 100%; height: 100%;">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <small>{{transport.transtype}}</small><br>
+          <b>Tk</b>
+          <p class="card-text">Details: <br>{{transport.transdetails}}</p>
+        </div>
+        <div class="card-body">
+          <button type="button" style="text-decoration: none;" class="btn btn-link" (click)="authenticate(transport.transtype)">Choose your destination here</button>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+  

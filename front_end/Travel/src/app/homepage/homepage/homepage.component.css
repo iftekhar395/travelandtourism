@@ -1,0 +1,145 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  .container .tours{
+    width: 1280px;
+    min-height: 500px;
+    background: #fff;
+    margin: 70px auto 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .container .tours .box{
+    position: relative;
+    width: 257px;
+    height: 300px;
+    margin: 10px;
+    box-sizing: border-box;
+    background: aquamarine;
+    display: inline-block;
+  }
+
+  .container .tours .box .imgBox{
+    position: relative;
+    overflow: hidden;
+  }
+
+  .container .tours .box .imgBox img{
+    width: 300px;
+    height: 300px;
+    transition: transform 2s;
+  }
+
+  .container .tours .box:hover .imgBox img{
+    transform: scale(1.2);
+  }
+
+  .container .tours .box .details{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.096);
+    transform: scaleY(0);
+    transition: transform .5s;
+
+  }
+  .container .tours .box:hover .details{
+    transform: scaleY(1);
+  }
+  .container .tours .box .details .content .abc{
+    position: absolute;
+    transform: translateY(-50%);
+  }
+
+  .container .tours .box .details .content .abc h2{
+    margin: 0;
+    padding: 0;
+  }
+
+  .container .tours .box .details .content .abc p{
+    margin: 10px 0 0;
+    padding: 0;
+    font-size: 20px;
+    color: aquamarine;
+  }
+
+
+
+
+  .single-resort{
+    pointer-events: relative;
+    overflow: hidden;
+  }
+  /* .resort-img{
+    transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    -ms-transition:all .5s;
+    -o-transition: all .5s;
+  
+  } */
+  .resort-text{
+    position : absolute;
+    bottom: 0;
+    padding: 10px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    transform: translateY(100%);
+    transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -webkit-transition: all .5s ease-out;
+    -ms-transition:all .5s ease-out;
+    -o-transition: all .5s ease-out;
+  }
+  .resort-text p{
+    text-align: justify;
+  }
+  
+  /* .container .tours .box .detail{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.096);
+    transform: scaleY(0);
+    transition: transform .5s;
+  }
+ */
+  .single-resort:hover .resort-text{
+    transform: translateY(0);
+    -webkit-transform:translateY(0);
+    -moz-transform:translateY(0);
+    -ms-transform:translateY(0);
+    -o-transform: translateY(0);
+  }
+  .single-resort:hover .resort-img{
+    transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+    -moz-transform: scale(1.15);
+    -ms-transform: scale(1.15);
+    -o-transform: scale(1.15);
+
+  }

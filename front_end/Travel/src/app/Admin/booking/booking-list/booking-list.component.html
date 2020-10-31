@@ -1,0 +1,44 @@
+<div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color: turquoise;">Search here</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Default" [(ngModel)]="cid" placeholder="Booking Id" aria-describedby="inputGroup-sizing-sm" (keyup)="insertId(cid)">
+</div>
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Booking Id</th>
+            <th scope="col">Customer Id</th>
+            <th scope="col">Package Id</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Members</th>
+            <th scope="col">Hotel Id</th>
+            <th scope="col">Total Items</th>
+            <th scope="col">Bus Id</th>
+            <th scope="col">Subtotal</th>
+            <th scope="col">Payment Status</th>
+            <th scope="col">Booking Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let customer of showAll">
+            <td scope="row">{{customer[0].bookingid}}</td>
+            <td>{{customer[0].custid}}</td>
+            <td>{{customer[0].tpackid}}</td>
+            <td>{{customer[0].tourstart}}</td>
+            <td>{{customer[0].tourend}}</td>
+            <td>{{customer[0].totalperson}}</td>
+            <td>{{customer[1].hdetid}}</td>
+            <td>{{customer[1].totalroom}}</td>
+            <td>{{customer[1].busid}}</td>
+            <td>{{customer[1].subtotal}}Tk</td>
+            <td>{{customer[1].paystatus}}</td>
+            <td>{{customer[0].bookingdate  | date: "mediumDate"}}</td>
+                <!-- <a class="btn text-danger" (click)="deleteCustomerUser(customer[0].custid,customer[0].email)">
+                    <i class="fa fa-trash"></i>
+
+                </a> -->
+        </tr>
+    </tbody>
+</table>

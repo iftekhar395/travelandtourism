@@ -1,0 +1,160 @@
+<!-- <!Doctype html>
+<html lang="en">
+
+</html>
+<body>
+    <header> -->
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+              <div class="bg-light p-4">
+                <h5 class="text-black h4">Welcome to</h5>
+                <span class="text-muted">Dhrubo Travel & Tourism Agency Ltd.</span>
+              </div>
+            </div>
+            <nav class="navbar sticky-top navbar-light" style="background-color: #e3f2fd;">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleOn = !toggleOn">
+                <span class="navbar-toggler-icon mb-0"></span>
+              </button>
+           
+              <h4 style="padding-left: 265px;">Dhrubo Travel & Tourism Agency</h4>
+              <!-- <div class="float-right">
+                <small>
+                    Your cart:
+                    <span *ngIf="cart.itemCount > 0">
+                        {{cart.cartPrice | currency:"Tk ":"symbol":"2.2-2"}}
+                    </span>
+                    <span *ngIf="cart.itemCount == 0">
+                        (empty)
+                    </span>
+                </small>
+                <button class="btn btn-sm bg-dark text-white"  routerLink="/dhrubo/cart" routerLinkActive="active current">
+                    <i class="fa fa-shopping-cart">
+                     <span class="badge badge-light" *ngIf="cart.itemCount > 0">
+                      {{cart.itemCount}}
+                     </span>
+                    </i> 
+                </button>
+               </div> -->
+                  <!-- <div class="search-box">
+                    <input class="search-txt text-center" type="text" name="" placeholder=" Type to search" [(ngModel)]="search">
+                    <a class="search-btn" style="text-decoration: none;" (click)="searchAnything(search)">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    </a>
+                  </div> -->
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" aria-label="Search" [(ngModel)]="search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="text-decoration: none;" (click)="searchAnything(search)">Search</button>
+                  </form>
+            </nav>
+            
+            <!-- <div class="collapse" id="navbarToggleExternalContent">
+              <div class="bg-light p-4" *ngIf="!toggleOn">
+                <h5 class="text-black h4">Welcome to</h5>
+                <span class="text-muted">Dhrubo Travel & Tourism Agency Ltd.</span>
+              </div>
+            </div> -->
+
+            <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" routerLink="/dhrubo/homepage" routerLinkActive="active current">Dhrubo</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                  <ul class="navbar-nav mr-auto" style="padding-left: 260px;">
+                    <li class="nav-item active">
+                      <a class="nav-link" routerLink="/dhrubo/homepage" routerLinkActive="active current">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" routerLink="/dhrubo/tours" routerLinkActive="active current">Tours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/dhrubo/hotels" routerLinkActive="active current">Hotels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/dhrubo/resorts" routerLinkActive="active current">Resorts</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Transports
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" routerLink="/dhrubo/cars" routerLinkActive="active current">Rent-a-Car</a>
+                            <a class="dropdown-item" routerLink="/dhrubo/buses" routerLinkActive="active current">Rent-a-Bus</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/dhrubo/aboutus" routerLinkActive="active current">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/dhrubo/contact" routerLinkActive="active current">Contact</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                      <a class="nav-link" routerLink="/dhrubo/payhere" routerLinkActive="active current" (click)="logIn1()">Payment</a>
+                  </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        My Account
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" style="cursor: pointer;" (click)="logIn()">Profile</a>
+                        <div *ngIf="service.userRole1.length==0">
+                        <a class="dropdown-item" routerLink="/dhrubo/login" routerLinkActive="active current">Sign in</a>
+                        </div>
+                        <div *ngIf="service.userRole1.length!=0">
+                        <a class="dropdown-item" routerLink="/dhrubo/login" routerLinkActive="active current" (click)="signOut()">Sign Out</a>
+                        </div>
+                        <a class="dropdown-item" routerLink="/dhrubo/signup" routerLinkActive="active current">Create an Account</a>
+                        <!-- <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a> -->
+                      </div>
+                    </li>
+                    <!-- <li class="nav-item">
+                      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li> -->
+                  </ul>
+                  <!-- <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form> -->
+                  <!-- <div class="search-box">
+                    <input class="search-txt text-center" type="text" name="" placeholder=" Type to search" [(ngModel)]="search">
+                    <a class="search-btn" style="text-decoration: none;" (click)="searchAnything(search)">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    </a>
+                  </div> -->
+                </div>
+                <!-- <a name="top"></a> -->
+                <div class="float-right">
+                <small>
+                    Your cart:
+                    <span *ngIf="cart.itemCount > 0">
+                        {{cart.cartPrice | currency:"Tk ":"symbol":"2.2-2"}}
+                    </span>
+                    <span *ngIf="cart.itemCount == 0">
+                        (empty)
+                    </span>
+                </small>
+                <button class="btn btn-sm bg-dark text-white"  routerLink="/dhrubo/cart" routerLinkActive="active current">
+                    <i class="fa fa-shopping-cart">
+                     <span class="badge badge-light" *ngIf="cart.itemCount > 0">
+                      {{cart.itemCount}}
+                     </span>
+                    </i> 
+                </button>
+               </div>
+              </nav>
+    <!-- </header> -->
+    <main>
+       <router-outlet></router-outlet>
+       <!-- <a class="float-right" id="myBtn" href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i>
+       </a> -->
+      
+    </main>
+    <!-- <br> -->
+    <footer class="container footer col-md-12" style="float: inline-end;">
+		<p class="text-center">&copy; 2020 Dhrubo Travel and Tourism Agency Ltd, All rights reserved &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+	  </footer>
+<!-- </body> -->

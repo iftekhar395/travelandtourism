@@ -1,0 +1,32 @@
+<div class="container mt-2">
+<div class="card" *ngFor="let hotel of allHotel">
+  <img [src]="hotel.imgurl" class="card-img-top" />
+  <div class="card-body">
+    <h5 class="card-title">{{ hotel.roomtype }}</h5>
+    <p class="card-text">{{ hotel.type }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Details: {{ hotel.facilities }}</li>
+    <li class="list-group-item">Rent/Day: {{ hotel.rent }}Tk</li>
+  </ul>
+  <div class="card-body" (mouseover)="err($event)">
+    <button
+      class="btn btn-link"
+      routerLink="/dhrubo/book"
+      routerLinkActive="active current"
+    >
+      Book Now
+    </button>
+    <button
+      type="button"
+      class="btn btn-link"
+      (click)="addProductToCart(hotel)"
+      (click)="getHotelById(hotel.hdetid, 1)"
+      [disabled]="cservice.userRole1.length == 0"
+    >
+      Add to Wishlist
+    </button>
+  </div>
+</div>
+</div>

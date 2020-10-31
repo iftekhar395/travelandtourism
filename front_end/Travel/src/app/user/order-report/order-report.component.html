@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="accordion" id="accordionExample">
+<div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Generate Report
+          </button>
+        </h5>
+      </div>
+  
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body ex3">
+
+            <div class="row">
+                <div class="col-md-7">
+                        <label>Report Title</label>
+                        <input placeholder="Report Title" type="text"
+                            [(ngModel)]="title">
+                </div>
+                <div class="col-md-5">
+                    <button class="btn btn-success" (click)="generateAllpurchaseReport()"> <i
+                        class="fa fa-save"></i> Generate Report</button>
+                <button class="btn btn-primary"><i class="fa fa-retweet"></i> Clear</button>
+                </div>
+            </div>
+     
+    <a [href]="src">Download the PDF</a>
+    
+    <pdf-viewer [src]="src" [render-text]="true" style="display: block;"> </pdf-viewer>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+

@@ -1,0 +1,12 @@
+#myBtn {
+    position: fixed;
+    bottom: 30px;
+    float: right;
+    right: 18.5%;
+    left: 95.25%;
+    max-width: 30px;
+    width: 100%;
+    font-size: 25px;
+    color: rgba(85, 85, 85, 0.5);
+
+}

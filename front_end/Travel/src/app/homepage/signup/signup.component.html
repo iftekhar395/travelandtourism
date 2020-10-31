@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Dhrubo</title>
+    </head>
+    <body>
+        <div class="car">
+            <div class="highway"></div>
+            <div class="city">
+                <!-- <img src="../../../assets/images/city.png"> -->
+            </div>
+            <div class="zip">
+                <div class="wrap">
+                    <h2 style="text-align: center;">Sign up here</h2><br>
+                    <form>
+                        <input type="text" placeholder="Your name.." name="username"
+                        [(ngModel)]="customerService.currentCustomer.custname" required/>
+                        <input type="text" placeholder="Phone No.." name="phoneno"
+                        [(ngModel)]="customerService.currentCustomer.custphone" required/>
+                        <input type="email" placeholder="Email address.." name="email"
+                        [(ngModel)]="customerService.currentCustomer.email"
+                        [(ngModel)]="customerService.userRole.emailid" required/>
+                        <textarea type="text" placeholder="Address.." name="address"
+                        [(ngModel)]="customerService.currentCustomer.custaddress" required></textarea>
+                        <input type="password" placeholder="Enter new password.." name="password"
+                        [(ngModel)]="customerService.userRole.password" required/>
+                        <button type="submit"
+                        (click)="createOrUpdate(customerService.currentCustomer,customerService.userRole)">Submit</button>
+                    </form>
+                </div>
+                <img src="../../../assets/images/car.png">
+            </div>
+            <div class="wheel">
+                <img src="../../../assets/images/wheel.png" class="back-wheel">
+                <img src="../../../assets/images/wheel.png" class="front-wheel">
+            </div>
+            
+        </div>
+        
+       
+    </body>
+</html>

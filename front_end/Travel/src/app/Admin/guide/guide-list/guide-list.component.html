@@ -1,0 +1,29 @@
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Guide Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Address</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let guide of allGuide">
+            <td scope="row">{{guide.gid}}</td>
+            <td>{{guide.name}}</td>
+            <td>{{guide.mobile}}</td>
+            <td>{{guide.email}}</td>
+            <td>{{guide.address}}</td>
+            <!-- <td> -->
+                <a class="btn btn-outline-primary" (click)="editGuide(guide)">
+                    <i class="fa fa-edit"></i>
+                </a>
+                <a class="btn text-danger" (click)="deleteGuide(guide.gid)">
+                    <i class="fa fa-trash"></i>
+
+                </a>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,14 @@
+.list-group-item + .list-group-item {
+    border-top-width: 10px;
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 2.25rem;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* .lbl{
+    padding-top: 10px;
+} */

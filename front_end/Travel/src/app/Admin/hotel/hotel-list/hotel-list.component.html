@@ -1,0 +1,34 @@
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Agent Id</th>
+            <th scope="col">Room Type</th>
+            <th scope="col">Rent</th>
+            <th scope="col">Facilities</th>
+            <th scope="col">Type</th>
+            <th scope="col">Image</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let hotel of hotelService.hotel">
+            <td scope="row">{{hotel.hdetid}}</td>
+            <td>{{hotel.hagentid}}</td>
+            <td>{{hotel.roomtype}}</td>
+            <td>{{hotel.rent}}</td>
+            <td>{{hotel.facilities}}</td>
+            <td>{{hotel.type}}</td>
+            <td>
+                <img [src]="hotel.imgurl" style="width: 50px; height: 50px;">
+            </td>
+                <a class="btn btn-outline-primary mt-2" (click)="editHotel(hotel)">
+                    <i class="fa fa-edit"></i>
+                </a>
+                <a class="btn text-danger" (click)="deleteHotel(hotel.hdetid)">
+                    <i class="fa fa-trash"></i>
+
+                </a>
+        </tr>
+    </tbody>
+</table>

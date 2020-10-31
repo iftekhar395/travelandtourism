@@ -1,0 +1,10 @@
+.card{
+    width: 18rem; 
+    float: left; 
+    margin: 1.5rem;
+}
+
+.car-img-top{
+    width: 286px; 
+    height: 210px;
+}

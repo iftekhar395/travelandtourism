@@ -1,0 +1,54 @@
+<div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm" style="background-color: turquoise;">Search here</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Default" [(ngModel)]="cid" placeholder="Customer Id" aria-describedby="inputGroup-sizing-sm" (keyup)="insertId(cid)">
+  </div>
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <!-- <th scope="col">Role Id</th> -->
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Password</th>
+            <th scope="col">Address</th>
+            <th scope="col">Role</th>
+            <th scope="col">Image Url</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let customer of getuscus">
+            <td scope="row">{{customer[0].custid}}</td>
+            <!-- <td>{{customer[1].id}}</td> -->
+            <td>{{customer[0].custname}}</td>
+            <td>{{customer[0].custphone}}</td>
+            <td>{{customer[0].email}}</td>
+            <td>{{customer[1].password}}</td>
+            <td>{{customer[0].custaddress}}</td>
+            <td>{{customer[1].role}}</td>
+            <td>
+                <img [src]="customer[0].image" style="width: 50px; height: 50px;">
+            </td>
+            <td>{{customer[1].status}}</td>
+            <!-- <td> -->
+                <a class="btn btn-outline-primary" (click)="editCustomerUser(customer[0],customer[1])">
+                    <i class="fa fa-edit" aria-hidden="true"></i>
+                </a>
+            <!-- </td> -->
+            <!-- <td> -->
+                <!-- type="button"  style="margin: 5px;"
+                    >Edit</button> -->
+                <a class="btn text-danger" (click)="deleteCustomerUser(customer[0].custid,customer[0].email)">
+                    <i class="fa fa-trash"></i>
+
+                </a>
+                <!-- <button type="button" class="btn btn-danger" style="margin: 5px;"
+                    (click)="deleteCustomer(customer)">Delete</button> -->
+            <!-- </td> -->
+        </tr>
+    </tbody>
+</table>

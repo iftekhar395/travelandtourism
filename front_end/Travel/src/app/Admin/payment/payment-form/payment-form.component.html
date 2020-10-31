@@ -1,0 +1,94 @@
+<h1 class="text-center">Add Payment</h1>
+<div class="form-group">
+  <label for="paymentid">Payment Id</label>
+  <input
+    type="text"
+    class="form-control"
+    id="payid"
+    [(ngModel)]="paymentService.payment.payid"
+    name="payid"
+  />
+</div>
+<div class="form-group">
+  <label for="cid">Customer Id</label>
+  <input
+    type="text"
+    class="form-control"
+    id="custid"
+    required
+    [(ngModel)]="paymentService.payment.custid"
+    name="custid"
+  />
+</div>
+<div class="form-group">
+  <label for="bookid">Booking Id</label>
+  <input
+    type="text"
+    class="form-control"
+    id="bookingid"
+    required
+    [(ngModel)]="paymentService.payment.bookingid"
+    name="bookingid"
+  />
+</div>
+<div class="form-group">
+  <label for="date">Date</label>
+  <input
+    type="date"
+    class="form-control"
+    id="paydate"
+    required
+    [(ngModel)]="paymentService.payment.paydate"
+    name="paydate"
+  />
+</div>
+<div class="form-group">
+    <label for="payableamount">Amount</label>
+    <input
+      class="form-control"
+      id="amount"
+      required
+      [(ngModel)]="paymentService.payment.amount"
+      name="amount"
+    />
+  </div>
+  <div class="form-group">
+    <label for="type">Pay Type</label>
+    <input
+      class="form-control"
+      id="paytype"
+      required
+      [(ngModel)]="paymentService.payment.paytype"
+      name="paytype"
+    />
+  </div>
+  
+  <div class="form-group">
+    <label for="type">Status</label>
+    <input
+      class="form-control"
+      id="status"
+      required
+      [(ngModel)]="paymentService.payment.status"
+      name="status"
+    />
+  </div>
+<div class="text-center">
+  <button
+    type="submit"
+    class="btn btn-success"
+    (click)="createPayment(paymentService.payment)"
+  >
+    Add</button
+  >&nbsp;
+  <button
+    type="submit"
+    class="btn btn-info"
+    (click)="updatePayment(paymentService.payment)"
+  >
+    Update</button
+  >&nbsp;
+  <button type="submit" class="btn btn-primary" (click)="clear()">
+    Refresh
+  </button>
+</div>    
